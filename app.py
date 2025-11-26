@@ -38,8 +38,20 @@ with st.sidebar:
     uploaded_file = st.file_uploader(
         "Choose an Excel file",
         type=['xlsx', 'xls'],
-        help="Upload your monthly sales data file"
+        help="Upload your monthly sales data file (Max 200MB). For large files, please wait for upload to complete.",
+        accept_multiple_files=False
     )
+    
+    # Show file info if uploaded
+    if uploaded_file is not None:
+        file_size_mb = uploaded_file.size / (1024 * 1024)
+        st.info(f"📄 File: {uploaded_file.name}\n📊 Size: {file_size_mb:.2f} MB")
+        
+        if file_size_mb > 200:
+            st.error("⚠️ File is too large! Maximum size is 200MB. Please use a smaller file.")
+            uploaded_file = None
+        elif file_size_mb > 50:
+            st.warning("⚠️ Large file detected. Upload and processing may take longer. Please be patient.")
     
     st.header("⚙️ Forecast Settings")
     forecast_periods = st.number_input(
@@ -64,18 +76,61 @@ with st.sidebar:
 # Main content area
 if uploaded_file is not None:
     try:
-        # Show loading spinner
-        with st.spinner("Processing data..."):
-            # Read and process data
+        # Check file size again
+        file_size_mb = uploaded_file.size / (1024 * 1024)
+        if file_size_mb > 200:
+            st.error("❌ File is too large! Maximum size is 200MB.")
+            st.stop()
+        
+        # Show progress
+        progress_bar = st.progress(0)
+        status_text = st.empty()
+        
+        # Read and process data with progress updates
+        status_text.text("📥 Reading Excel file...")
+        progress_bar.progress(10)
+        
+        # Reset file pointer in case it was read before
+        uploaded_file.seek(0)
+        
+        # Read file with error handling
+        try:
             df_raw = read_excel_file(uploaded_file)
-            df_long = transform_to_long_format(df_raw)
-            actuals_df, forecasts_df = extract_actuals_and_forecasts(df_long)
-            
-            # Store in session state
-            st.session_state['actuals_df'] = actuals_df
-            st.session_state['forecasts_df'] = forecasts_df
-            st.session_state['df_raw'] = df_raw
-            
+        except Exception as read_error:
+            progress_bar.empty()
+            status_text.empty()
+            if "canceled" in str(read_error).lower():
+                st.error("❌ File upload was canceled. Please try uploading again.")
+            else:
+                st.error(f"❌ Error reading file: {str(read_error)}")
+                st.info("💡 Please ensure the file is a valid Excel file (.xlsx or .xls)")
+            st.stop()
+        
+        status_text.text("🔄 Transforming data format...")
+        progress_bar.progress(30)
+        df_long = transform_to_long_format(df_raw)
+        
+        status_text.text("📊 Extracting actuals and forecasts...")
+        progress_bar.progress(60)
+        actuals_df, forecasts_df = extract_actuals_and_forecasts(df_long)
+        
+        status_text.text("💾 Storing data...")
+        progress_bar.progress(80)
+        
+        # Store in session state
+        st.session_state['actuals_df'] = actuals_df
+        st.session_state['forecasts_df'] = forecasts_df
+        st.session_state['df_raw'] = df_raw
+        
+        progress_bar.progress(100)
+        status_text.text("✅ Complete!")
+        
+        # Clear progress indicators
+        import time
+        time.sleep(0.5)
+        progress_bar.empty()
+        status_text.empty()
+        
         st.success("✅ Data loaded successfully!")
         
         # Display data summary
@@ -478,9 +533,33 @@ if uploaded_file is not None:
                     use_container_width=True
                 )
         
+    except pd.errors.EmptyDataError:
+        st.error("❌ The uploaded file is empty. Please upload a valid Excel file with data.")
+    except pd.errors.ParserError as e:
+        st.error(f"❌ Error reading Excel file: {str(e)}")
+        st.info("💡 Please ensure your file is a valid Excel file (.xlsx or .xls format)")
     except Exception as e:
-        st.error(f"❌ Error processing file: {str(e)}")
-        st.exception(e)
+        error_msg = str(e)
+        if "canceled" in error_msg.lower() or "CanceledError" in str(type(e)):
+            st.error("❌ File upload was canceled or timed out.")
+            st.info("""
+            **Possible causes:**
+            - File is too large (try a smaller file or compress it)
+            - Slow internet connection
+            - Upload timeout
+            
+            **Solutions:**
+            - Try uploading a smaller file (< 50MB recommended)
+            - Check your internet connection
+            - Try again in a few moments
+            """)
+        elif "memory" in error_msg.lower():
+            st.error("❌ Not enough memory to process this file.")
+            st.info("💡 Please try with a smaller file or reduce the number of rows.")
+        else:
+            st.error(f"❌ Error processing file: {error_msg}")
+            with st.expander("🔍 Technical Details"):
+                st.exception(e)
 
 else:
     # Instructions when no file is uploaded

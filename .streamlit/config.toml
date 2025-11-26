@@ -1,5 +1,7 @@
 [browser]
 gatherUsageStats = false
+serverAddress = "localhost"
+serverPort = 8501
 
 [server]
 headless = true
@@ -8,6 +10,7 @@ enableXsrfProtection = true
 port = 8501
 maxUploadSize = 200
 maxMessageSize = 200
+fileWatcherType = "poll"
 
 [runner]
 fastReruns = true

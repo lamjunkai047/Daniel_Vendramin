@@ -8,17 +8,30 @@ import numpy as np
 from typing import Tuple, Optional
 
 
-def read_excel_file(file_path: str) -> pd.DataFrame:
+def read_excel_file(file_path) -> pd.DataFrame:
     """
     Read the Excel file containing sales data.
     
     Args:
-        file_path: Path to the Excel file
+        file_path: Path to the Excel file or file-like object
         
     Returns:
         DataFrame with the raw data
     """
-    return pd.read_excel(file_path)
+    # Handle both file paths and file-like objects (Streamlit uploads)
+    try:
+        if isinstance(file_path, str):
+            return pd.read_excel(file_path, engine='openpyxl')
+        else:
+            # For Streamlit file uploader objects
+            return pd.read_excel(file_path, engine='openpyxl')
+    except Exception as e:
+        # Try with xlrd engine for .xls files
+        if hasattr(file_path, 'name') and file_path.name.endswith('.xls'):
+            file_path.seek(0)  # Reset file pointer
+            return pd.read_excel(file_path, engine='xlrd')
+        else:
+            raise e
 
 
 def transform_to_long_format(df: pd.DataFrame) -> pd.DataFrame:
