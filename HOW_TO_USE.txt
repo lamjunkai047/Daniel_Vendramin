@@ -1,0 +1,107 @@
+═══════════════════════════════════════════════════════════════
+         HOW TO USE THE SALES FORECASTING APPLICATION
+═══════════════════════════════════════════════════════════════
+
+FOR USERS WHO DON'T KNOW PROGRAMMING:
+======================================
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 1: START THE APPLICATION                               │
+└─────────────────────────────────────────────────────────────┘
+
+   Method A (Recommended):
+   • Find the file named "launch_app_simple.py" in this folder
+   • Double-click it (it has a Python icon)
+   • Wait for the application to start
+
+   Method B (Alternative):
+   • Find the file named "launch_app.bat" in this folder
+   • Double-click it
+   • Wait for the application to start
+
+   ⚠️ FIRST TIME ONLY: The application will download and install
+      required packages. This takes 5-10 minutes. Be patient!
+
+   ✅ AFTER FIRST TIME: The application starts in seconds!
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 2: USE THE APPLICATION                                 │
+└─────────────────────────────────────────────────────────────┘
+
+   1. Your web browser will open automatically
+   2. You'll see the "Sales Forecasting with Prophet" page
+   3. In the left sidebar, click "Browse files"
+   4. Select your Excel sales data file
+   5. Click the "Generate Forecasts" button
+   6. Wait for forecasts to be generated (may take a few minutes)
+   7. View results in the tabs:
+      • Forecasts: See the predictions
+      • Comparison: Compare Prophet vs Manual forecasts
+      • Visualizations: See charts and graphs
+      • Download: Export results as Excel file
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ STEP 3: CLOSE THE APPLICATION                               │
+└─────────────────────────────────────────────────────────────┘
+
+   • Close the command window that opened when you started
+   • Or press Ctrl+C in that window
+   • The browser will close automatically
+
+
+═══════════════════════════════════════════════════════════════
+REQUIREMENTS:
+═══════════════════════════════════════════════════════════════
+
+✓ Windows computer
+✓ Python 3.8 or higher installed
+  (Download from: https://www.python.org/downloads/)
+  Make sure to check "Add Python to PATH" during installation
+✓ Internet connection (only needed for first-time setup)
+
+
+═══════════════════════════════════════════════════════════════
+TROUBLESHOOTING:
+═══════════════════════════════════════════════════════════════
+
+Problem: "Python is not recognized"
+Solution: Install Python from python.org and make sure to check
+          "Add Python to PATH" during installation
+
+Problem: Application doesn't start
+Solution: Try using "launch_app.bat" instead of "launch_app.py"
+
+Problem: Browser doesn't open automatically
+Solution: Manually open your browser and go to:
+          http://localhost:8501
+
+Problem: "Module not found" error
+Solution: The launcher should install packages automatically.
+          Make sure you have internet connection on first run.
+
+Problem: Email prompt appears
+Solution: This should be fixed automatically. If it appears,
+          just press Enter to skip it.
+
+
+═══════════════════════════════════════════════════════════════
+DATA FILE FORMAT:
+═══════════════════════════════════════════════════════════════
+
+Your Excel file should have:
+• Sales Force column
+• Product PA column  
+• Key Figure column (with "Actuals Qty" and "Consensus Demand Final")
+• Monthly date columns in format "YY-MMM" (e.g., "21-Jan", "22-Feb")
+
+
+═══════════════════════════════════════════════════════════════
+NEED MORE HELP?
+═══════════════════════════════════════════════════════════════
+
+See "SETUP_INSTRUCTIONS.txt" for more detailed information.
+
+═══════════════════════════════════════════════════════════════
+

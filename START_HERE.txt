@@ -1,0 +1,51 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║        SALES FORECASTING APPLICATION - START HERE           ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+🚀 QUICK START (FOR NON-PROGRAMMERS):
+=====================================
+
+STEP 1: Double-click the file named "launch_app_auto.bat"
+        (Easiest method - works for everyone!)
+        
+        OR double-click "launch_app_simple.py" if you prefer Python
+
+STEP 2: Wait for the application to start
+        (First time may take 5-10 minutes to install packages)
+
+STEP 3: Your web browser will open automatically
+        (The application runs in your browser)
+
+STEP 4: Upload your Excel file and click "Generate Forecasts"
+
+
+📋 REQUIREMENTS:
+================
+✓ Windows computer
+✓ Python installed (download from python.org if needed)
+✓ Internet connection (for first-time setup only)
+
+
+💡 TIPS:
+========
+• First time setup takes longer (installing packages)
+• After first time, it starts in seconds
+• Keep this window open while using the application
+• Close this window to stop the application
+
+
+❓ ALTERNATIVE METHOD:
+=====================
+If "launch_app.py" doesn't work, try double-clicking "launch_app.bat" instead
+
+
+📞 NEED HELP?
+=============
+See "SETUP_INSTRUCTIONS.txt" for detailed instructions
+
+
+═══════════════════════════════════════════════════════════════
+

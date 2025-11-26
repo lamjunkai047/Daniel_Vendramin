@@ -1,0 +1,66 @@
+═══════════════════════════════════════════════════════════════
+        INSTALLATION ISSUE FIX - PYARROW BUILD ERROR
+═══════════════════════════════════════════════════════════════
+
+PROBLEM:
+========
+The error occurs because pyarrow (a dependency) is trying to build from
+source, which requires CMake and Visual Studio Build Tools that are not
+installed on the client's PC.
+
+REASON:
+=======
+- Python 3.14 is very new and may not have pre-built wheels for pyarrow
+- Building from source requires C++ compiler tools
+- The client's PC doesn't have these development tools installed
+
+SOLUTIONS (Choose One):
+======================
+
+OPTION 1: Use Python 3.11 or 3.12 (RECOMMENDED)
+-----------------------------------------------
+Python 3.11 or 3.12 have better pre-built wheel support:
+1. Download Python 3.11 or 3.12 from python.org
+2. Install it (make sure to check "Add Python to PATH")
+3. Run the application again
+
+OPTION 2: Install Visual Studio Build Tools
+--------------------------------------------
+If you must use Python 3.14:
+1. Download "Build Tools for Visual Studio" from:
+   https://visualstudio.microsoft.com/downloads/
+2. Install "Desktop development with C++" workload
+3. Restart the computer
+4. Run the application again
+
+OPTION 3: Manual Package Installation
+--------------------------------------
+1. Open Command Prompt in the project folder
+2. Run these commands one by one:
+   
+   python -m pip install --upgrade pip setuptools wheel
+   python -m pip install --only-binary :all: pyarrow
+   python -m pip install streamlit pandas numpy prophet plotly openpyxl xlrd
+
+3. If pyarrow still fails, try:
+   python -m pip install pyarrow --no-build-isolation
+
+OPTION 4: Use Pre-installed Python Environment
+------------------------------------------------
+If the client has Anaconda or another Python distribution:
+1. Use that Python instead
+2. Install packages using conda (if Anaconda):
+   conda install -c conda-forge pyarrow
+   pip install -r requirements.txt
+
+QUICK FIX (Try This First):
+===========================
+1. Delete the project folder's __pycache__ folder if it exists
+2. Run: python -m pip install --upgrade pip
+3. Run: python -m pip install --only-binary :all: pyarrow
+4. Run: python -m pip install -r requirements.txt
+
+If this doesn't work, use Option 1 (Python 3.11/3.12) - it's the easiest!
+
+═══════════════════════════════════════════════════════════════
+

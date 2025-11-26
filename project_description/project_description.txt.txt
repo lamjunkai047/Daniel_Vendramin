@@ -1,0 +1,45 @@
+job description;
+
+Description:
+Procuramos um freelancer experiente para desenvolver uma solução de previsão de vendas utilizando o modelo Prophet da Meta. O projeto envolve a criação de um código em Python ou uma aplicação que possa ser executada mensalmente para gerar novas previsões de vendas. A base de dados disponível contém informações históricas de vendas de diversos produtos de um fabricante, detalhadas mês a mês, ao longo de vários anos.
+
+Os principais objetivos do projeto incluem:
+- Implementar o modelo Prophet para prever vendas futuras com base nos dados históricos fornecidos.
+- Desenvolver um script Python robusto e fácil de usar, ou uma aplicação, que permita a atualização mensal das previsões.
+- Incluir uma funcionalidade para comparar o desempenho das previsões geradas pelo modelo Prophet com as previsões manuais dos vendedores (input manual). Esta comparação é crucial para avaliar a acurácia de ambos os métodos e identificar qual deles oferece maior precisão.
+
+Esperamos uma solução que seja eficiente, escalável e que forneça insights claros sobre o desempenho das vendas futuras e a eficácia dos diferentes métodos de previsão. O freelancer deve ter forte conhecimento em Python, modelagem de dados e experiência com bibliotecas de machine learning, especialmente Prophet.
+
+
+___________________________________________________________________
+
+These are chatting history.
+
+-client: "Hello, Iamjun! Can we arrange a meeting so I can explain the project for you?"
+-freelancer: "Yeah"
+-client: "Hello, Iamjun! Sorry, I could not work in this project the past days. What is the best time for you to talk? Can you talk today?"
+-freelancer: "We can discuss about the project now"
+"I can deliver a complete forecasting solution using Python and Meta’s Prophet that runs smoothly every month with your updated sales data. I’ll structure the script/app to read your historical dataset, generate accurate sales forecasts, and automatically update predictions as new months are added.
+I’ll also build a comparison layer so you can measure Prophet’s performance against the manual forecasts from your sales team. This will give you a clear view of which method is more accurate and where adjustments may be needed.
+The final solution will be clean, scalable, and easy for your team to use. Happy to start as soon as you’re ready."
+-client: "Nice! How would the interface be to update predictions as new months are added? It should not be too difficult, as the users are not used to programming."
+-freelancer:"I can create a small interface where the user just uploads the new monthly sales file (Excel or CSV) and clicks “Generate Forecasts”. The app will run Prophet in the background and output the updated predictions plus the comparison with the manual forecasts."
+-client: "I’m sending you a sample of the data so you can check if anything is missing before starting the project.
+Columns A, C, D, and F have blank values to protect confidential information, but this should not affect your work.
+The original file has more than 7,000 rows.
+Please note that the value in Column C (Product PA) can repeat for different values in Column B (Sales Force).
+Actuals Qty represents the real sales the product had in the respective period.
+Consensus Demand Final contains the manual forecasts from the sales team.
+WMAPE and Bias are forecast accuracy indicators, calculated for the last 1 or 3 months.
+The source system already calculates these indicators and generates the file in this exact format."
+"I’m sending you a sample of the data so you can check if anything is missing before starting the project.
+Columns A, C, D, and F have blank values to protect confidential information, but this should not affect your work.
+The original file has more than 7,000 rows.
+
+Please note that the value in Column C (Product PA) can repeat for different values in Column B (Sales Force).
+Actuals Qty represents the real sales the product had in the respective period.
+Consensus Demand Final contains the manual forecasts from the sales team.
+WMAPE and Bias are forecast accuracy indicators, calculated for the last 1 or 3 months.
+The source system already calculates these indicators and generates the file in this exact format."
+"Attachments:
+Forecast - Sample Data.xlsx"

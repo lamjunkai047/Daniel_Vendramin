@@ -1,0 +1,57 @@
+========================================
+SALES FORECASTING APPLICATION - SETUP
+========================================
+
+FOR USERS WHO DON'T KNOW PROGRAMMING:
+=====================================
+
+OPTION 1: EASIEST - Double-Click Launcher
+------------------------------------------
+1. Double-click "launch_app.py" file
+2. Wait for the application to start (first time may take a few minutes)
+3. The application will open in your web browser automatically
+4. Upload your Excel file and start forecasting!
+
+OPTION 2: Alternative - Batch File
+----------------------------------
+1. Double-click "launch_app.bat" file
+2. Wait for the application to start
+3. The application will open in your web browser automatically
+
+REQUIREMENTS:
+-------------
+- Windows computer
+- Python 3.8 or higher installed
+  (If not installed, download from: https://www.python.org/downloads/)
+  Make sure to check "Add Python to PATH" during installation
+
+FIRST TIME SETUP:
+-----------------
+The first time you run the application, it will automatically:
+- Install required packages (this may take 5-10 minutes)
+- Set up the application
+- Open in your browser
+
+After the first time, it will start much faster.
+
+USING THE APPLICATION:
+----------------------
+1. Click "Browse files" in the sidebar
+2. Select your Excel sales data file
+3. Click "Generate Forecasts" button
+4. View results in the tabs
+5. Download results as Excel file
+
+TROUBLESHOOTING:
+----------------
+If the application doesn't start:
+1. Make sure Python is installed (download from python.org)
+2. Make sure you're connected to the internet (for first-time package installation)
+3. Try running "launch_app.bat" instead of "launch_app.py"
+
+If you see errors about missing packages:
+- The launcher should install them automatically
+- If not, you may need to install Python packages manually (contact IT support)
+
+========================================
+

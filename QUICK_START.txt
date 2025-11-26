@@ -1,0 +1,42 @@
+═══════════════════════════════════════════════════════════════
+           QUICK START GUIDE - READ THIS FIRST!
+═══════════════════════════════════════════════════════════════
+
+🚀 TO START THE APPLICATION:
+============================
+
+1. Double-click: "launch_app_auto.bat"
+   
+   That's it! The application will:
+   ✓ Set up everything automatically
+   ✓ Install packages if needed (first time only)
+   ✓ Skip the email prompt
+   ✓ Open your web browser automatically
+   ✓ Start the forecasting application
+
+2. Wait for your browser to open (usually 10-30 seconds)
+
+3. Upload your Excel file and click "Generate Forecasts"
+
+
+📝 IMPORTANT NOTES:
+===================
+
+• FIRST TIME: May take 5-10 minutes to install packages
+• AFTER FIRST TIME: Starts in seconds
+• Keep the black window open while using the app
+• Close the black window to stop the application
+
+
+❓ IF IT DOESN'T WORK:
+======================
+
+Try these in order:
+1. Double-click "launch_app_simple.py" instead
+2. Make sure Python is installed (download from python.org)
+3. Make sure you have internet (for first-time setup)
+4. See "HOW_TO_USE.txt" for more help
+
+
+═══════════════════════════════════════════════════════════════
+
